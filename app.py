@@ -22,7 +22,7 @@ def convert_to_speech():
 
     return send_file(filepath, as_attachment=True)
 
-if __name__ == '__main__':
-    if not os.path.exists("static"):
-        os.makedirs("static")
-    app.run(debug=False)
+#if __name__ == '__main__':
+#    if not os.path.exists("static"):
+#        os.makedirs("static")
+#    app.run(debug=False)
