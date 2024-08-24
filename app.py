@@ -18,17 +18,11 @@ def convert_to_speech():
     filepath = os.path.join("static", filename)
     tts.save(filepath)
     
-    @after_this_request
-    def remove_file(response):
-        try:
-            os.remove(filepath)
-        except Exception as error:
-            app.logger.error("Error removing or closing downloaded file handle", error)
-        return response
+    
 
     return send_file(filepath, as_attachment=True)
 
 if __name__ == '__main__':
     if not os.path.exists("static"):
         os.makedirs("static")
-    app.run(debug=True)
+    app.run(debug=False)
