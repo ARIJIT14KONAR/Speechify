@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF to Speech Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <img src="static/LOGO.jpg" class="logo">
+            <h1>PDF to Speech Converter</h1>
+            <nav>
+                <a href="#about-us" style="color: tan;">About Us</a>
+                <a href="#feedback" style="color: tan;">Feedback</a>
+            </nav>
+        </div>
+    </header>
+    <div class="info" id="info"> 
+        <p class="blinker">Turn PDFs into Audio Magic with Just a Click!</p>
+        <p class="general">Welcome to the future of reading!
+         🚀 Our PDF to Speech Converter transforms your digital documents into smooth,
+          crystal-clear audio in seconds. Whether you're on the go, 
+          chilling at home, or just vibing, let your PDFs speak to you.
+           Say goodbye to eye strain and hello to hands-free listening. 
+           With a sleek interface and lightning-fast processing,
+            it's never been this easy—or this cool—to convert text to talk.
+             Ready to level up your reading game? Let’s roll! 🎧📄✨</p>
+        
+        </div>
+    <div class="container" id="container">
+        
+        
+        <div class="file-upload-container">
+            <label for="pdf-upload" class="file-upload-label">Choose PDF File</label>
+            <input type="file" id="pdf-upload" accept="application/pdf">
+            <p id="file-name" ></p>
+        
+        </div>
+        <button id="convert-btn">Convert to Speech</button>
+
+        <!-- spinner -->
+        <div id="spinner" style="display: none;"></div>
+
+        <!-- Display PDF Contents -->
+        <div id="pdf-content" style="display: none;"></div>
+
+        <!-- Display page-count-->
+        <p id="total-pages" style="color: bisque; font-weight: bold; margin-top: 20px; display: none;">Page count : </p>
+
+        <!-- Display total duration of audio-->
+        <div id="audio-duration" style="color: bisque; font-weight: bold;display: none;">Total duration:</div>
+
+        <!-- Progress Bar -->
+        <div id="progress-container">
+            <div id="progress-bar">0%</div>
+        </div>
+
+        <p id="status" style="color: bisque; font-weight: bold;"></p>
+        
+        <a id="download-link" style="display: none;">Download MP3</a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

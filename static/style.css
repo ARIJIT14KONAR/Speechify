@@ -1,0 +1,242 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("/static/picture.jpg");
+    background-size: cover;
+    margin: 0;
+    flex-direction: column;
+}
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    color: tan;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Ensure header is on top */
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.header nav {
+    margin-left: auto;
+}
+
+.header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.header nav a:hover {
+    color: #ffcc00;
+}
+.logo{
+    height: 35px;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+.info{
+    
+    text-align: center;
+    padding: 20px;
+    border: 1.5px solid rgb(184,227,233); /* Existing border */
+    border-radius: 10px;
+    width:50%;
+    color: rgba(184, 227, 233, 0.853);
+    margin-bottom: 10px;
+}
+.blinker {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00ff00;
+    animation: blink 1.5s infinite;
+    text-align: center;
+}
+.general{
+    font-size: 20px;
+}
+.container {
+    text-align: center;
+    background-color: rgba(221, 213, 213, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-color: black;
+    border-width: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 30%;
+}
+
+/* Custom File Input */
+#pdf-upload {
+    display: none; /* Hide default file input */
+}
+
+.file-upload-container {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+}
+
+.file-upload-label {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.file-upload-label:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+#file-name{
+    color: wheat;
+    margin-top: 10px;
+}
+/* Convert Button */
+#convert-btn {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#convert-btn:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+#convert-btn:active {
+    background-color: #1e7e34;
+}
+
+
+#progress-container {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    display: none; /* Initially hidden */
+    margin-top: 20px;
+}
+
+#progress-bar {
+    height: 20px;
+    width: 0%;
+    background-color: #4CAF50;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+    background: repeating-linear-gradient(
+        -45deg,
+        #4CAF50,
+        #4CAF50 10px,
+        #3e8e41 10px,
+        #3e8e41 20px
+    );
+    background-size: 200% 100%;
+    animation: move-stripes 1s linear infinite;
+}
+
+@keyframes move-stripes {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 0; }
+}
+
+#pdf-content {
+    display: none; /* Hidden initially */
+    text-align: center;
+    align-items: center;
+    max-height: 30vh; /* Limit height of the content container */
+    overflow-y: auto; /* Enable vertical scroll if content overflows */
+    margin-top: 20px;
+    margin-left: 130px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    max-width: 60vw;
+    background: #fff;
+}
+.pdf-page {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f8f8f8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin: 20px auto; /* Center the page content */
+}
+canvas {
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+.page-number {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+#download-link {
+    font-size: 20px;
+    font-weight: bold;
+    color: #00ff00;
+    animation: blink 1.5s infinite;
+    text-decoration:none;
+    display: inline-block;
+    text-align: center;
+}
+#download-link:hover {
+    text-decoration: underline; /* Optionally, add underline on hover */
+}
+#spinner {
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+    display: none;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+@keyframes blink {
+    0% { color: #00ff00; }
+    25% { color: #ffcc00; }
+    50% { color: #ff00ff; }
+    75% { color: #00ffff; }
+    100% { color: #00ff00; }
+}
