@@ -34,7 +34,7 @@ document.getElementById('convert-btn').addEventListener('click', () => {
 
                 const pdfContentDiv = document.getElementById('pdf-content');
                 pdfContentDiv.innerHTML = ''; // Clear previous content
-                pdfContentDiv.style.display = 'block'; // Show the content div
+                pdfContentDiv.style.display = 'block'; // Show the div content-div
 
                 const pagesPromises = [];
                 for (let i = 1; i <= numPages; i++) {
