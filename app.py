@@ -2,9 +2,10 @@ from flask import Flask, request, send_file, render_template, after_this_request
 from gtts import gTTS
 import os
 from uuid import uuid4
+from flask_cors import CORS
 
 app = Flask(__name__)
-
+CORS(app)
 @app.route('/')
 def index():
     return render_template('index.html')
